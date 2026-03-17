@@ -1,18 +1,7 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
-const MESSAGES_FILE = path.join(process.cwd(), 'data', 'messages.json');
-
-function ensureDataDir() {
-  const dir = path.dirname(MESSAGES_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  if (!fs.existsSync(MESSAGES_FILE)) {
-    fs.writeFileSync(MESSAGES_FILE, '[]', 'utf-8');
-  }
-}
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 export async function POST(request) {
   try {
@@ -30,26 +19,33 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Message is required.' }, { status: 400 });
     }
 
-    ensureDataDir();
+    // Format the Telegram message
+    const text = `📩 <b>New Portfolio Contact!</b>\n\n👤 <b>Name:</b> ${escapeHtml(name.trim())}\n📧 <b>Email:</b> ${escapeHtml(email.trim())}\n💬 <b>Message:</b>\n${escapeHtml(message.trim())}\n\n🕐 <i>${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</i>`;
 
-    // Read existing messages
-    const raw = fs.readFileSync(MESSAGES_FILE, 'utf-8');
-    const messages = JSON.parse(raw);
-
-    // Add new message
-    messages.push({
-      id: Date.now(),
-      name: name.trim(),
-      email: email.trim(),
-      message: message.trim(),
-      timestamp: new Date().toISOString()
+    // Send to Telegram
+    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const telegramRes = await fetch(telegramUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text,
+        parse_mode: 'HTML'
+      })
     });
 
-    // Save
-    fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2), 'utf-8');
+    const telegramData = await telegramRes.json();
+
+    if (!telegramData.ok) {
+      console.error('Telegram API error:', telegramData);
+      return NextResponse.json(
+        { error: 'Failed to send message. Please try again.' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
-      message: 'Thank you! Your message has been received.',
+      message: 'Thank you! Your message has been sent.',
       success: true
     });
   } catch (error) {
@@ -61,13 +57,10 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
-  try {
-    ensureDataDir();
-    const raw = fs.readFileSync(MESSAGES_FILE, 'utf-8');
-    const messages = JSON.parse(raw);
-    return NextResponse.json({ messages, count: messages.length });
-  } catch {
-    return NextResponse.json({ messages: [], count: 0 });
-  }
+// Escape HTML special characters to prevent injection
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
