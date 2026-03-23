@@ -228,12 +228,20 @@ img { max-width: 100%; display: block; }
   padding: 120px 40px 80px;
   overflow: hidden;
 }
-.hero-content {
+.hero-inner {
   max-width: var(--container);
   margin: 0 auto;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
   position: relative;
   z-index: 2;
+}
+.hero-content {
+  width: 100%;
+  position: relative;
 }
 .hero-tag {
   display: inline-flex;
@@ -259,7 +267,7 @@ img { max-width: 100%; display: block; }
   50% { opacity: 0.4; }
 }
 .hero-title {
-  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.04em;
@@ -280,6 +288,53 @@ img { max-width: 100%; display: block; }
   display: flex;
   gap: 16px;
   margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+/* Hero Photo — blended edges */
+.hero-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero-photo-wrapper {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: float-photo 6s ease-in-out infinite;
+}
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  filter: grayscale(15%) contrast(1.05) brightness(0.95);
+  transition: filter var(--transition-slow);
+}
+.hero-photo-wrapper:hover .hero-photo-img {
+  filter: grayscale(0%) contrast(1.1) brightness(1);
+}
+.hero-photo-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.25;
+  z-index: -1;
+  filter: blur(40px);
+  animation: glow-pulse 4s ease-in-out infinite alternate;
+}
+@keyframes float-photo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes glow-pulse {
+  0% { opacity: 0.15; transform: scale(0.95); }
+  100% { opacity: 0.3; transform: scale(1.05); }
 }
 
 /* Buttons */
@@ -341,6 +396,31 @@ img { max-width: 100%; display: block; }
   width: 1px;
   height: 40px;
   background: var(--border);
+}
+
+/* Hero responsive — photo stacks on top on mobile */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-photo {
+    order: -1;
+  }
+  .hero-photo-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Hero grid lines */
