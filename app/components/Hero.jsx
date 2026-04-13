@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="hero-photo">
           <div className="hero-photo-wrapper">
             <Image
-              src="/profile.jpeg"
+              src="/profile.jpg"
               alt={profile.name}
               width={420}
               height={480}
