@@ -38,19 +38,19 @@ export const experience = [
     tags: ["Python", "NLP", "Scikit-learn", "Pandas", "NumPy", "Transformers", "Matplotlib", "TF-IDF", "FinBERT"]
   },
   {
-    id: 2,
-    role: "ML Intern",
-    company: "Coincent",
-    type: "Remote",
-    period: "Jun 2024 – Aug 2024",
-    bullets: [
-      "Developed an NLP-based movie recommendation system using movie descriptions, genres, and user preferences to generate personalized recommendations",
-      "Applied text preprocessing, TF-IDF vectorization, and cosine similarity to identify semantically similar movies",
-      "Optimized recommendation quality through feature engineering and model evaluation, improving relevance and search efficiency",
-      "Built scalable data pipelines for model training, evaluation, and automated retraining workflows"
-    ],
-    tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "NLTK", "TF-IDF", "Cosine Similarity", "Matplotlib"]
-  }
+      id: 2,
+      role: "ML Intern",
+      company: "Coincent",
+      type: "Remote",
+      period: "Jun 2024 – Aug 2024",
+      bullets: [
+        "Developed an NLP-based movie recommendation system using movie descriptions, genres, and user preferences to generate personalized recommendations",
+        "Applied text preprocessing, Bag of Words (CountVectorizer), and cosine similarity to identify semantically similar movies",
+        "Optimized recommendation quality through feature engineering and model evaluation, improving relevance and search efficiency",
+        "Built scalable data pipelines for model training, evaluation, and automated retraining workflows"
+      ],
+      tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "NLTK", "Bag of Words", "CountVectorizer", "Cosine Similarity", "Matplotlib"]
+    }
 ];
 
 export const projects = [
