@@ -5,7 +5,7 @@ export default function Certifications() {
     <section className="section" id="certifications">
       <div className="container">
         <div className="section-header reveal">
-          <span className="section-number">05</span>
+          <span className="section-number">06</span>
           <h2 className="section-title">Certifications</h2>
           <div className="section-line" />
         </div>

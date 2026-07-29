@@ -15,8 +15,8 @@ export const profile = {
     cgpa: "8.1 / 10"
   },
   contact: {
-    email: "piyu14923072@gmail.com",
-    phone: "+91 6396323908",
+    email: "Piyu14923072@gmail.com",
+    phone: "+91-6396323908",
     linkedin: "https://linkedin.com/in/piyush-rawat006",
     github: "https://github.com/PiyushRw"
   }
@@ -26,50 +26,60 @@ export const experience = [
   {
     id: 1,
     role: "AI Intern",
-    company: "Coincent",
+    company: "InternsElite",
     type: "Remote",
-    period: "Jul 2025 – Aug 2025",
+    period: "Dec 2024 – Mar 2025",
     bullets: [
-      "Created end-to-end ML pipelines with preprocessing, feature engineering, and hyperparameter tuning using Scikit-learn and TensorFlow",
-      "Set up MLflow experiment tracking to automate evaluation loops and compare performance across multiple models",
-      "Developed FastAPI endpoints and Dockerized components for consistent testing and deployment",
-      "Improved prediction accuracy by 18-25% and cut manual testing time by 40%"
+      "Built an NLP pipeline to extract, preprocess, and analyze financial data from SEC 10-K and 10-Q reports of multinational corporations",
+      "Developed machine learning models to predict financial trends and business performance using extracted textual and numerical features",
+      "Automated document parsing, feature engineering, and report summarization to improve financial analysis efficiency",
+      "Applied text preprocessing, TF-IDF vectorization, and Transformers (BERT/FinBERT) for semantic document understanding"
     ],
-    tags: ["Python", "Scikit-learn", "TensorFlow", "MLflow", "FastAPI", "Docker"]
+    tags: ["Python", "NLP", "Scikit-learn", "Pandas", "NumPy", "Transformers", "Matplotlib", "TF-IDF", "FinBERT"]
   },
   {
     id: 2,
-    role: "Machine Learning Intern",
-    company: "Internselite",
+    role: "ML Intern",
+    company: "Coincent",
     type: "Remote",
-    period: "Jan 2024 – Mar 2024",
+    period: "Jun 2024 – Aug 2024",
     bullets: [
-      "Designed ML models for trend prediction and anomaly detection using XGBoost, Isolation Forest, and Autoencoders",
-      "Built Airflow pipelines with data validation, drift checks, and scheduled retraining — reduced manual analytics work by 70%",
-      "Integrated Kafka streams to process real-time data and apply live anomaly detection logic"
+      "Developed an NLP-based movie recommendation system using movie descriptions, genres, and user preferences to generate personalized recommendations",
+      "Applied text preprocessing, TF-IDF vectorization, and cosine similarity to identify semantically similar movies",
+      "Optimized recommendation quality through feature engineering and model evaluation, improving relevance and search efficiency",
+      "Built scalable data pipelines for model training, evaluation, and automated retraining workflows"
     ],
-    tags: ["Python", "XGBoost", "PyTorch", "Airflow", "Kafka"]
+    tags: ["Python", "Pandas", "NumPy", "Scikit-learn", "NLTK", "TF-IDF", "Cosine Similarity", "Matplotlib"]
   }
 ];
 
 export const projects = [
   {
     id: 1,
-    title: "AI-Driven Network Monitor",
-    subtitle: "DDoS Detection System",
-    period: "Feb 2025 – Mar 2025",
-    description: "Real-time network monitoring system with PyQt5 UI and live visualizations. Engineered time-series traffic features and trained models achieving 93% detection accuracy for DDoS attacks. Connected firewall API for automatic IP blocking and alert notifications.",
-    highlight: "93% accuracy",
-    tags: ["Python", "PyQt5", "ML", "Real-time Processing"]
+    title: "Agentic RAG System",
+    subtitle: "Autonomous Query Rewriting & Retrieval",
+    period: "Jan 2026 – Feb 2026",
+    description: "Developed an agentic RAG system with autonomous query rewriting, retrieval, and reflection using the Google Gemini API. Implemented semantic document retrieval using MiniLM embeddings and FAISS for efficient vector search. Built support for multi-format document ingestion with conversation memory and SQLite-based persistence.",
+    highlight: "Multi-format RAG",
+    tags: ["Python", "Google Gemini API", "FAISS", "Sentence-Transformers (MiniLM)", "CustomTkinter", "SQLite"]
   },
   {
     id: 2,
     title: "AI File Organizer",
-    subtitle: "NLP-Powered Classification",
-    period: "Nov 2025 – Dec 2025",
-    description: "NLP-based file classification system using TF-IDF and Sentence Transformer embeddings with 92% accuracy. Combined ML and rule-based sorting logic for precise file categorization. Reduced manual file sorting time by 80% through directory operation automation.",
-    highlight: "92% accuracy",
-    tags: ["Python", "NLP", "TF-IDF", "Sentence Transformers", "FastAPI"]
+    subtitle: "Multimodal Semantic File Classification",
+    period: "Aug 2025 – Sep 2025",
+    description: "Developed a multimodal AI system using Whisper, EasyOCR, and Sentence-Transformers for semantic file organization. Built a semantic search engine with 95% accuracy using MiniLM embeddings and spaCy for context-aware sorting. Automated categorization for diverse file types through real-time content indexing and NLP-driven topic modeling.",
+    highlight: "95% accuracy",
+    tags: ["Python", "Sentence-Transformers (MiniLM)", "CustomTkinter", "NumPy", "NLP", "Whisper", "EasyOCR"]
+  },
+  {
+    id: 3,
+    title: "AI-Driven Network Monitor with DDoS Detection",
+    subtitle: "Real-time Traffic Analysis & Mitigation",
+    period: "Feb 2025 – Sep 2025",
+    description: "Architected a real-time monitoring suite using psutil and pyqtgraph for high-frequency traffic visualization and analysis. Deployed an ensemble ML model (Isolation Forest, SVM, LOF) to identify and flag DDoS attack signatures in real-time. Built a cross-platform mitigation engine to automatically block malicious IPs through OS-level Firewall APIs.",
+    highlight: "Real-time DDoS Detection",
+    tags: ["Python", "Scikit-learn", "PyQt5", "psutil", "pyqtgraph", "Firewall APIs", "Isolation Forest", "SVM", "LOF"]
   }
 ];
 
@@ -77,49 +87,66 @@ export const skills = [
   {
     category: "Languages",
     icon: "</>",
-    items: ["Python", "C++", "Java", "JavaScript", "C"]
+    items: ["C++", "Python"]
   },
   {
-    category: "ML / DL Frameworks",
+    category: "Frameworks & Libraries",
     icon: "⚙",
-    items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "XGBoost", "LightGBM", "Transformers", "OpenCV"]
+    items: ["TensorFlow", "Keras", "Scikit-learn", "Transformers", "NLTK", "FastAPI", "LangChain"]
   },
   {
-    category: "MLOps & Tools",
+    category: "Tools & Platforms",
     icon: "⛓",
-    items: ["MLflow", "Airflow", "Docker", "Kubernetes", "FastAPI", "Git", "Jupyter"]
+    items: ["MySQL", "Pandas", "NumPy", "Matplotlib", "Docker", "Git", "GitHub"]
   },
   {
-    category: "Databases",
-    icon: "◉",
-    items: ["MySQL", "MongoDB"]
-  },
-  {
-    category: "Core Competencies",
+    category: "Soft Skills",
     icon: "◈",
-    items: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Data Analysis", "Algorithm Design"]
+    items: ["Problem-Solving", "Team Player", "Adaptability"]
   }
 ];
 
 export const certifications = [
   {
-    title: "Oracle Cloud Infrastructure 2025",
-    issuer: "Certified Data Science Professional",
+    title: "Coursera Google AI Essentials",
+    issuer: "Certificate",
     year: "2025"
   },
   {
-    title: "Oracle Fusion AI Agent Studio",
-    issuer: "Certified Foundations Associate",
+    title: "Oracle Cloud Infrastructure 2025 Certified Data Science Professional",
+    issuer: "Certification",
     year: "2025"
   },
   {
-    title: "Google AI Essentials",
-    issuer: "Specialization – Coursera",
+    title: "Oracle Fusion AI Agent Studio Certified Foundations Associate – Rel 1",
+    issuer: "Certification",
     year: "2025"
+  }
+];
+
+export const education = [
+  {
+    id: 1,
+    category: "University",
+    icon: "🎓",
+    items: [
+      "Lovely Professional University — B.Tech CSE (CGPA: 8.1) | Aug 2023 – Present"
+    ]
   },
   {
-    title: "Computer Communications",
-    issuer: "Coursera",
-    year: "2025"
+    id: 2,
+    category: "Intermediate",
+    icon: "🏫",
+    items: [
+      "Army Public School No.2 — Intermediate (83%) | Apr 2022 – Mar 2023"
+    ]
+  },
+  {
+    id: 3,
+    category: "Matriculation",
+    icon: "🏫",
+    items: [
+      "Army Public School No.2 — Matriculation (83%) | Apr 2020 – Mar 2021"
+    ]
   }
 ];
